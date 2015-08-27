@@ -239,7 +239,7 @@
     'name': 'keyword.control.matlab'
   }
   {
-    'match': '\\b(?<![\\.])(eps|false|flintmax|inf|Inf|intmax|intmin|namelengthmax|nan|NaN|realmax|realmin|true)(?![\\(\\.])\\b'
+    'match': '\\b(?<![\\.])(eps|false|flintmax|inf|Inf|intmax|intmin|namelengthmax|nan|NaN|pi|realmax|realmin|true)(?![\\(\\.])\\b'
     'name': 'constant.language.matlab'
   }
   {
@@ -247,7 +247,7 @@
     'name': 'constant.numeric.matlab'
   }
   {
-    'match': '(\\\').*(\\\')'
+    'match': '(?<![\\w\\]\\)\\}])(\\\')[^\n]*(\\\')'
     'captures':
       '1':
         'name': 'punctuation.definition.string.begin.matlab'
@@ -256,7 +256,7 @@
     'name': 'string.quoted.single.matlab'
   }
   {
-    'match': '(\\=|\\=\\=|\\~|\\~\\=|\\>|\\>\\=|\\<|\\<\\=|\\&|\\&&|\\||\\|\\||\\+|\\.\\+|\\\\|\\.\\\\|\\^|\\.\\^|\\*|\\.\\*|\\-|\\.\\-|\\@|\\:|\\;|!|\\.|\\,)'
+    'match': '(\\=|\\=\\=|\\~|\\~\\=|\\>|\\>\\=|\\<|\\<\\=|\\&|\\&&|\\||\\|\\||\\+|\\.\\+|\\\\|\\.\\\\|\\^|\\.\\^|\\*|\\.\\*|\\-|\\.\\-|\\@|\\:|\\;|!|\\.|\\,|\\\')'
     'name': 'keyword.operator.matlab'
   }
   {
