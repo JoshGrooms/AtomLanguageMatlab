@@ -1,0 +1,3 @@
+#!/bin/bash
+
+coffee ./coffee/main.coffee > m.cson
