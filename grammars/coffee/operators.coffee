@@ -1,3 +1,4 @@
+# OPERATORS - Captures all symbolic operators that MATLAB uses.
 operators =
     match:
         ///
@@ -19,11 +20,12 @@ operators =
                 | !
                 | \.
                 | \,
+                | \'
             )
         ///
     name: 'keyword.operator.matlab';
 
-
+# ENCLOSURES - Captures all enclosure characters that MATLAB uses.
 enclosures =
     [
         {
@@ -51,7 +53,6 @@ enclosures =
             name: 'keyword.operator.cell.close.matlab';
         }
     ]
-
 
 
 
