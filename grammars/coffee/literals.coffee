@@ -1,12 +1,8 @@
-
-
-
-
-
+# DEBLANK - Removes all whitespace from a string.
 String::deblank = ->
     return @replace(/(\s*|\r|\n)/gm, '');
 
-
+# CONSTANTS - Captures MATLAB constant names, but only in their non-functional form.
 constants =
     match:
         '''
@@ -21,6 +17,7 @@ constants =
                  | intmin
                  | namelengthmax
                  | nan | NaN
+                 | pi
                  | realmax
                  | realmin
                  | true
@@ -29,7 +26,7 @@ constants =
         '''.deblank()
     name: 'constant.language.matlab'
 
-
+# NUMBERS - Captures any legal numeric literal in MATLAB.
 numbers =
     match:
         '''
@@ -47,9 +44,9 @@ numbers =
         '''.deblank();
     name: 'constant.numeric.matlab'
 
-
+# STRINGS - Captures any legal string in MATLAB.
 strings =
-    match: /(\').*(\')/
+    match: '''(?<!\\w)(\\')[^\n]*(\\')'''
     captures:
         1: name: 'punctuation.definition.string.begin.matlab'
         2: name: 'punctuation.definition.string.end.matlab'
