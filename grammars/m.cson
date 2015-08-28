@@ -239,6 +239,10 @@
     'name': 'keyword.control.matlab'
   }
   {
+    'match': '\\b(nargin|nargout)\\b'
+    'name': 'keyword.other.matlab'
+  }
+  {
     'match': '\\b(?<![\\.])(eps|false|flintmax|inf|Inf|intmax|intmin|namelengthmax|nan|NaN|pi|realmax|realmin|true)(?![\\(\\.])\\b'
     'name': 'constant.language.matlab'
   }
