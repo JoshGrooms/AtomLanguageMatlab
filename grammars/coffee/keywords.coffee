@@ -42,6 +42,17 @@ keywordControls =
         ///
     name: 'keyword.control.matlab'
 
+keywordOthers =
+    match:
+        ///
+            \b
+            (
+                  nargin
+                | nargout
+            )
+            \b
+        ///
+    name: 'keyword.other.matlab';
 
 
-module.exports = [ keywordDeclarations, keywordControls ];
+module.exports = [ keywordDeclarations, keywordControls, keywordOthers ];
