@@ -20,10 +20,10 @@ close   = 'punctuation.definition.parameters.end.matlab'
 functionInput =
     begin: /\(/;
     beginCaptures:
-        0: name: open;
+        0: name: 'keyword.operator.group.open.matlab';
     end: /\)/
     endCaptures:
-        0: name: close;
+        0: name: 'keyword.operator.group.close.matlab';
     patterns:
         [{
             match: /(\w+)\s*(,)?/
@@ -39,7 +39,7 @@ functionInput =
 functionMultiOutput =
     begin: /\[/
     beginCaptures:
-        0: name: open;
+        0: name: 'keyword.operator.array.open.matlab';
     end:
         ///
             ( \] ) \s*
@@ -51,7 +51,7 @@ functionMultiOutput =
             ( \w+ )
         ///
     endCaptures:
-        1: name: close;
+        1: name: 'keyword.operator.array.close.matlab';
         2: name: ops;
         3: name: 'keyword.special-method.matlab'
         4: name: ops;
