@@ -150,6 +150,15 @@
     'name': 'comment.block.matlab'
   }
   {
+    'match': '(\\%{2})(.*)\\r?\\n'
+    'captures':
+      '1':
+        'name': 'comment.section.open.matlab'
+      '2':
+        'name': 'keyword.operator.matlab'
+    'name': 'comment.section.matlab'
+  }
+  {
     'match': '(\\%)(.*)\\r?\\n'
     'captures':
       '1':
