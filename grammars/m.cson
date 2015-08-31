@@ -170,11 +170,11 @@
         'begin': '\\('
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.begin.matlab'
+            'name': 'keyword.operator.group.open.matlab'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.end.matlab'
+            'name': 'keyword.operator.group.close.matlab'
         'patterns': [
           {
             'match': '(\\w+)\\s*(,)?'
@@ -190,11 +190,11 @@
         'begin': '\\['
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.begin.matlab'
+            'name': 'keyword.operator.array.open.matlab'
         'end': '(\\])\\s*(\\=)\\s*(?:(get|set)(\\.))?(\\w+)'
         'endCaptures':
           '1':
-            'name': 'punctuation.definition.parameters.end.matlab'
+            'name': 'keyword.operator.array.close.matlab'
           '2':
             'name': 'keyword.operator.matlab'
           '3':
