@@ -17,5 +17,11 @@ commentLine =
         2: name: 'comment.line.content.matlab'
     name: 'comment.line.matlab'
 
+commentSection =
+    match: /(\%{2})(.*)\r?\n/;
+    captures:
+        1: name: 'comment.section.open.matlab'
+        2: name: 'comment.section.content.matlab'
+    name: 'comment.section.matlab'
 
-module.exports = [ commentBlock, commentLine ];
+module.exports = [ commentBlock, commentSection, commentLine ];
