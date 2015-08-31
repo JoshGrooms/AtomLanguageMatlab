@@ -46,7 +46,7 @@ numbers =
 
 # STRINGS - Captures any legal string in MATLAB.
 strings =
-    match:'''(?<![\\w\\]\\)\\}])(\\')[^\n]*(\\')'''
+    match:'''(?<![\\w\\]\\)\\}])(\\')[^\n\\']*(\\')'''
     captures:
         1: name: 'punctuation.definition.string.begin.matlab'
         2: name: 'punctuation.definition.string.end.matlab'
