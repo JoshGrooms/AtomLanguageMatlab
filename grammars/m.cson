@@ -251,7 +251,7 @@
     'name': 'constant.numeric.matlab'
   }
   {
-    'match': '(?<![\\w\\]\\)\\}])(\\\')[^\n]*(\\\')'
+    'match': '(?<![\\w\\]\\)\\}])(\\\')[^\n\\\']*(\\\')'
     'captures':
       '1':
         'name': 'punctuation.definition.string.begin.matlab'
