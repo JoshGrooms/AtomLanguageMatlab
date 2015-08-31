@@ -155,7 +155,7 @@
       '1':
         'name': 'comment.section.open.matlab'
       '2':
-        'name': 'keyword.operator.matlab'
+        'name': 'comment.section.content.matlab'
     'name': 'comment.section.matlab'
   }
   {
