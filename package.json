@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "MATLAB/Octave language support for Atom",
-  "repository": "https://github.com/JoshGrooms/AtomLanguageMatlab",
+  "repository": "https://github.com/JoshGrooms/AtomLanguageMatlab.git",
   "license": "",
   "engines": {
     "atom": ">0.50.0"
