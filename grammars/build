@@ -1,3 +1,7 @@
 #!/bin/bash
 
+# CHANGELOG
+# Written by Josh Grooms on 20150827
+
+export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 coffee ./coffee/main.coffee > m.cson
