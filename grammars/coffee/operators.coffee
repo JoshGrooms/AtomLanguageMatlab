@@ -53,7 +53,7 @@ enclosures =
             match: /\}/;
             name: 'keyword.operator.cell.close.matlab';
         }
-    ]
+    ];
 
 
 
