@@ -9,7 +9,7 @@ commentBlock =
     contentName: 'comment.block.content.matlab'
     name: 'comment.block.matlab'
 
-# COMMENLINE - Captures single-line comments in MATLAB source code.
+# COMMENTLINE - Captures single-line comments in MATLAB source code.
 commentLine =
     match: /(\%)(.*)\r?\n/
     captures:
