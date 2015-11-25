@@ -1,19 +1,20 @@
 
-makeGrammar = require("atom-syntax-tools")
+{ makeGrammar, rule } = require("atom-syntax-tools")
 
 grammar =
     fileTypes:      ["m"]
     name:           "MATLAB"
     scopeName:      "source.matlab"
 
-    patterns: [
-        require('./classes')
-        require('./comments')
-        require('./functions')
-        require('./keywords')
-        require('./literals')
-        require('./operators')
-    ]
+    patterns:
+        [
+            require('./classes')
+            require('./comments')
+            require('./functions')
+            require('./keywords')
+            require('./literals')
+            require('./operators')
+        ];
 
 
 
