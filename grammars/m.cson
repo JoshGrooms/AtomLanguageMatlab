@@ -8,37 +8,31 @@
     'begin': '^\\s*\\b(classdef)\\b\\s+'
     'beginCaptures':
       '1':
-        'name': 'storage.type.matlab'
-      '2':
-        'name': 'entity.name.class.matlab'
-      '3':
-        'name': 'keyword.operator.matlab'
-      '4':
-        'name': 'entity.name.class.matlab'
+        'name': 'keyword.type.matlab'
     'end': '(.(?=\\%)|\\r?\\n)'
-    'name': 'meta.class.declaration.matlab'
+    'name': 'type.class.declaration.matlab'
     'patterns': [
       {
         'begin': '\\('
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.begin.matlab'
+            'name': 'enclosure.group.open.matlab'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.end.matlab'
+            'name': 'enclosure.group.close.matlab'
         'patterns': [
           {
-            'match': '(\\w+)\\s*(?:(\\=)(\\w+))?(\\,)?'
+            'match': '(\\w+)\\s*(?:(\\=)\\s*(\\w+)\\s*)?(\\,)?'
             'captures':
               '1':
-                'name': 'storage.modifier.matlab'
+                'name': 'keyword.qualifer.matlab'
               '2':
-                'name': 'keyword.operator.matlab'
+                'name': 'operator.character.assignment.matlab'
               '3':
-                'name': 'storage.modifier.matlab'
+                'name': 'keyword.qualifier.matlab'
               '4':
-                'name': 'keyword.operator.matlab'
+                'name': 'operator.character.matlab'
           }
         ]
       }
@@ -46,19 +40,19 @@
         'match': '(\\w+)(?:\\s*(\\<)\\s*(\\w+))?'
         'captures':
           '1':
-            'name': 'entity.name.class.matlab'
+            'name': 'type.name.matlab'
           '2':
-            'name': 'keyword.operator.matlab'
+            'name': 'operator.character.matlab'
           '3':
-            'name': 'entity.name.superclass.matlab'
+            'name': 'type.name.matlab'
       }
       {
         'match': '\\s*(\\&)\\s*(\\w+)'
         'captures':
           '1':
-            'name': 'keyword.operator.matlab'
+            'name': 'operator.character.matlab'
           '2':
-            'name': 'entity.name.superclass.matlab'
+            'name': 'type.name.matlab'
       }
     ]
   }
@@ -66,87 +60,87 @@
     'match': '^\\s*\\b(enumeration)\\b\\s*\\r?\\n'
     'captures':
       '1':
-        'name': 'keyword.other.matlab'
-    'name': 'meta.class.enumerators.matlab'
+        'name': 'keyword.type.matlab'
+    'name': 'type.enumeration.declaration.matlab'
   }
   {
     'begin': '^\\s*\\b(properties)\\b'
     'beginCaptures':
       '1':
-        'name': 'keyword.other.matlab'
+        'name': 'keyword.qualifer.matlab'
     'end': '(.(?=\\%)|\\r?\\n)'
     'patterns': [
       {
         'begin': '\\('
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.begin.matlab'
+            'name': 'enclosure.group.open.matlab'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.end.matlab'
+            'name': 'enclosure.group.close.matlab'
         'patterns': [
           {
-            'match': '(\\w+)\\s*(?:(\\=)(\\w+))?(\\,)?'
+            'match': '(\\w+)\\s*(?:(\\=)\\s*(\\w+)\\s*)?(\\,)?'
             'captures':
               '1':
-                'name': 'storage.modifier.matlab'
+                'name': 'keyword.qualifer.matlab'
               '2':
-                'name': 'keyword.operator.matlab'
+                'name': 'operator.character.assignment.matlab'
               '3':
-                'name': 'storage.modifier.matlab'
+                'name': 'keyword.qualifier.matlab'
               '4':
-                'name': 'keyword.operator.matlab'
+                'name': 'operator.character.matlab'
           }
         ]
       }
     ]
-    'name': 'meta.class.properties.matlab'
+    'name': 'type.class.property.declaration.matlab'
   }
   {
     'begin': '^\\s*\\b(methods)\\b'
     'beginCaptures':
       '1':
-        'name': 'keyword.other.matlab'
+        'name': 'keyword.qualifier.matlab'
     'end': '(.(?=\\%)|\\r?\\n)'
     'patterns': [
       {
         'begin': '\\('
         'beginCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.begin.matlab'
+            'name': 'enclosure.group.open.matlab'
         'end': '\\)'
         'endCaptures':
           '0':
-            'name': 'punctuation.definition.parameters.end.matlab'
+            'name': 'enclosure.group.close.matlab'
         'patterns': [
           {
-            'match': '(\\w+)\\s*(?:(\\=)(\\w+))?(\\,)?'
+            'match': '(\\w+)\\s*(?:(\\=)\\s*(\\w+)\\s*)?(\\,)?'
             'captures':
               '1':
-                'name': 'storage.modifier.matlab'
+                'name': 'keyword.qualifer.matlab'
               '2':
-                'name': 'keyword.operator.matlab'
+                'name': 'operator.character.assignment.matlab'
               '3':
-                'name': 'storage.modifier.matlab'
+                'name': 'keyword.qualifier.matlab'
               '4':
-                'name': 'keyword.operator.matlab'
+                'name': 'operator.character.matlab'
           }
         ]
       }
     ]
-    'name': 'meta.class.methods.matlab'
+    'name': 'type.class.method.declaration.matlab'
   }
   {
-    'begin': '(\\%\\{)'
+    'begin': '\\%\\{'
     'beginCaptures':
-      '1':
+      '0':
         'name': 'comment.block.open.matlab'
+    'contentName': 'comment.block.content.matlab'
     'end': '(\\%\\})'
     'endCaptures':
-      '1':
+      '0':
         'name': 'comment.block.close.matlab'
-    'contentName': 'comment.block.content.matlab'
     'name': 'comment.block.matlab'
   }
   {
@@ -171,129 +165,137 @@
     'begin': '^\\s*\\b(function)\\b'
     'beginCaptures':
       '1':
-        'name': 'storage.type.matlab'
+        'name': 'keyword.type.function.matlab'
     'end': '(.(?=\\%)|\\r?\\n)'
-    'name': 'meta.function.declaration.matlab'
+    'name': 'type.function.declaration.matlab'
     'patterns': [
-      {
-        'begin': '\\('
-        'beginCaptures':
-          '0':
-            'name': 'keyword.operator.group.open.matlab'
-        'end': '\\)'
-        'endCaptures':
-          '0':
-            'name': 'keyword.operator.group.close.matlab'
-        'patterns': [
-          {
-            'match': '(\\w+)\\s*(,)?'
-            'captures':
-              '1':
-                'name': 'variable.parameter.input.function.matlab'
-              '2':
-                'name': 'keyword.operator.matlab'
-          }
-        ]
-      }
       {
         'begin': '\\['
         'beginCaptures':
           '0':
-            'name': 'keyword.operator.array.open.matlab'
-        'end': '(\\])\\s*(\\=)\\s*(?:(get|set)(\\.))?(\\w+)'
+            'name': 'enclosure.group.open.matlab'
+        'end': '(\\])\\s*(\\=)\\s*'
         'endCaptures':
           '1':
-            'name': 'keyword.operator.array.close.matlab'
+            'name': 'enclosure.group.close.matlab'
           '2':
-            'name': 'keyword.operator.matlab'
-          '3':
-            'name': 'keyword.special-method.matlab'
-          '4':
-            'name': 'keyword.operator.matlab'
-          '5':
-            'name': 'entity.name.function.matlab'
+            'name': 'operator.character.assignment.matlab'
         'patterns': [
           {
             'match': '(\\w+)\\s*(,)?'
             'captures':
               '1':
-                'name': 'variable.parameter.output.function.matlab'
+                'name': 'variable.argument.output.matlab'
               '2':
-                'name': 'keyword.operator.matlab'
+                'name': 'operator.character.separator.matlab'
           }
         ]
       }
       {
-        'match': '(?:(\\w+)\\s*(\\=)\\s*)?(?:(get|set)(\\.))?(\\w+)'
+        'match': '(\\w+)\\s*(\\=)\\s*'
         'captures':
           '1':
-            'name': 'variable.parameter.output.function.matlab'
+            'name': 'variable.argument.output.matlab'
           '2':
-            'name': 'keyword.operator.matlab'
+            'name': 'operator.character.assignment.matlab'
+      }
+      {
+        'begin': '\\('
+        'beginCaptures':
+          '0':
+            'name': 'enclosure.group.open.matlab'
+        'end': '\\)'
+        'endCaptures':
+          '0':
+            'name': 'enclosure.group.close.matlab'
+        'patterns': [
+          {
+            'match': '(\\w+)\\s*(,)?'
+            'captures':
+              '1':
+                'name': 'variable.argument.input.matlab'
+              '2':
+                'name': 'operator.character.separator.matlab'
+          }
+        ]
+      }
+      {
+        'match': '(?:(get|set)(\\.))?(\\w+)'
+        'captures':
+          '1':
+            'name': 'keyword.control.matlab'
+          '2':
+            'name': 'operator.character.matlab'
           '3':
-            'name': 'keyword.special-method.matlab'
-          '4':
-            'name': 'keyword.operator.matlab'
-          '5':
-            'name': 'entity.name.function.matlab'
+            'name': 'type.function.name.matlab'
       }
     ]
   }
   {
     'match': '\\b(classdef|function|global|persistent)\\b'
-    'name': 'storage.type.matlab'
+    'name': 'keyword.type.matlab'
   }
   {
     'match': '\\b(break|case|catch|continue|else|elseif|end|for|if|otherwise|parfor|return|spmd|switch|try|while)\\b'
     'name': 'keyword.control.matlab'
   }
   {
-    'match': '\\b(nargin|nargout)\\b'
+    'match': '\\b(nargin|nargout|varargin|varargout)\\b'
     'name': 'keyword.other.matlab'
   }
   {
     'match': '\\b(?<![\\.])(eps|false|flintmax|inf|Inf|intmax|intmin|namelengthmax|nan|NaN|pi|realmax|realmin|true)(?![\\(\\.])\\b'
-    'name': 'constant.language.matlab'
+    'name': 'keyword.literal.matlab'
   }
   {
     'match': '(?<![\\w\\.])\\d+\\.?\\d*(?:[eE][\\+\\-]?\\d+)?[ij]?\\b'
-    'name': 'constant.numeric.matlab'
+    'name': 'literal.number.matlab'
   }
   {
-    'match': '(?<![\\w\\]\\)\\}])(\\\')[^\n\\\']*(\\\')'
+    'match': '(\\\')(\\\')'
     'captures':
       '1':
-        'name': 'punctuation.definition.string.begin.matlab'
+        'name': 'enclosure.string.open.matlab'
       '2':
-        'name': 'punctuation.definition.string.end.matlab'
-    'name': 'string.quoted.single.matlab'
+        'name': 'enclosure.string.close.matlab'
+  }
+  {
+    'match': '(?<![\\w\\]\\)\\}])(\\\')([^\\\']+)(\\\')'
+    'captures':
+      '1':
+        'name': 'enclosure.string.open.matlab'
+      '2':
+        'name': 'literal.string.content.matlab'
+      '3':
+        'name': 'enclosure.string.close.matlab'
+    'name': 'literal.string.matlab'
   }
   {
     'match': '(\\=|\\=\\=|\\~|\\~\\=|\\>|\\>\\=|\\<|\\<\\=|\\&|\\&\\&|\\||\\|\\||\\+|\\.\\+|\\\\|\\.\\\\|/|\\./|\\^|\\.\\^|\\*|\\.\\*|\\-|\\.\\-|\\@|\\:|\\;|\\!|\\.|\\,|\\\')'
-    'name': 'keyword.operator.matlab'
+    'name': 'operator.character.matlab'
   }
   {
     'match': '\\['
-    'name': 'keyword.operator.array.open.matlab'
+    'name': 'enclosure.array.open.matlab'
   }
   {
     'match': '\\]'
-    'name': 'keyword.operator.array.close.matlab'
+    'name': 'enclosure.array.close.matlab'
   }
   {
     'match': '\\('
-    'name': 'keyword.operator.group.open.matlab'
+    'name': 'enclosure.group.open.matlab'
   }
   {
     'match': '\\)'
-    'name': 'keyword.operator.group.close.matlab'
+    'name': 'enclosure.group.close.matlab'
   }
   {
     'match': '\\{'
-    'name': 'keyword.operator.cell.open.matlab'
+    'name': 'enclosure.cell.open.matlab'
   }
   {
     'match': '\\}'
-    'name': 'keyword.operator.cell.close.matlab'
+    'name': 'enclosure.cell.close.matlab'
   }
 ]
