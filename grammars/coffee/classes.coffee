@@ -6,26 +6,26 @@ lineEnding = /(.(?=\%)|\r?\n)/
 classModifiers =
     begin: /\(/;
     beginCaptures:
-        0: name: 'punctuation.definition.parameters.begin.matlab'
+        0: name: 'enclosure.group.open.matlab'
     end: /\)/;
     endCaptures:
-        0: name: 'punctuation.definition.parameters.end.matlab'
+        0: name: 'enclosure.group.close.matlab'
     patterns:
         [{
             match:
                 ///
                     (\w+) \s*
                     (?:
-                        ( \= )
-                        ( \w+ )
+                        ( \= ) \s*
+                        ( \w+ ) \s*
                     )?
                     ( \, )?
                 ///
             captures:
-                1: name: 'storage.modifier.matlab'
-                2: name: 'keyword.operator.matlab'
-                3: name: 'storage.modifier.matlab'
-                4: name: 'keyword.operator.matlab'
+                1: name: 'keyword.qualifer.matlab'
+                2: name: 'operator.character.assignment.matlab'
+                3: name: 'keyword.qualifier.matlab'
+                4: name: 'operator.character.matlab'
         }]
 
 # CLASSINHERITANCE - Captures and labels the first superclass in a MATLAB class declaration line.
@@ -39,29 +39,24 @@ classInheritance =
             )?
         ///
     captures:
-        1: name: 'entity.name.class.matlab'
-        2: name: 'keyword.operator.matlab'
-        3: name: 'entity.name.superclass.matlab'
+        1: name: 'type.name.matlab'
+        2: name: 'operator.character.matlab'
+        3: name: 'type.name.matlab'
 
 # CLASSMULTIPLEINHERITANCE - Captures and labels multiple superclass objects in a MATLAB class declaration line.
 classMultipleInheritance =
     match: /\s*(\&)\s*(\w+)/
     captures:
-        1: name: 'keyword.operator.matlab'
-        2: name: 'entity.name.superclass.matlab'
-
+        1: name: 'operator.character.matlab'
+        2: name: 'type.name.matlab'
 
 # CLASSDEFINITION - Captures and labels a class declaration line.
 classDefinition =
     begin: /^\s*\b(classdef)\b\s+/
     beginCaptures:
-        1: name: 'storage.type.matlab'
-        2: name: 'entity.name.class.matlab'
-        3: name: 'keyword.operator.matlab'
-        4: name: 'entity.name.class.matlab'
-
+        1: name: 'keyword.type.matlab'
     end: lineEnding;
-    name: 'meta.class.declaration.matlab'
+    name: 'type.class.declaration.matlab'
     patterns:
         [
             classModifiers,
@@ -73,32 +68,32 @@ classDefinition =
 enumDefinition =
     match: /^\s*\b(enumeration)\b\s*\r?\n/
     captures:
-        1: name: 'keyword.other.matlab';
-    name: 'meta.class.enumerators.matlab';
+        1: name: 'keyword.type.matlab'
+    name: 'type.enumeration.declaration.matlab'
 
 # PROPERTYDEFINITION - Captures and labels property block declarations in MATLAB classes.
 propertyDefinition =
     begin: /^\s*\b(properties)\b/
     beginCaptures:
-        1: name: 'keyword.other.matlab'
+        1: name: 'keyword.qualifer.matlab'
     end: lineEnding;
     patterns:
         [
             classModifiers,
         ];
-    name: 'meta.class.properties.matlab'
+    name: 'type.class.property.declaration.matlab'
 
 # METHODDEFINITION - Captures and labels method block declarations in MATLAB classes.
 methodDefinition =
     begin: /^\s*\b(methods)\b/;
     beginCaptures:
-        1: name: 'keyword.other.matlab'
+        1: name: 'keyword.qualifier.matlab'
     end: lineEnding;
     patterns:
         [
             classModifiers,
         ];
-    name: 'meta.class.methods.matlab'
+    name: 'type.class.method.declaration.matlab'
 
 
 
