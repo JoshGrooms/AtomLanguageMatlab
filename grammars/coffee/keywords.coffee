@@ -5,15 +5,15 @@ keywordDeclarations =
         ///
             \b
             (
-                  classdef
-                | function
-                | global
-                | persistent
+                classdef        |
+                function        |
+                global          |
+                persistent
             )
             \b
         ///
 
-    name: 'storage.type.matlab'
+    name: 'keyword.type.matlab'
 
 # KEYWORDCONTROLS - Keywords that control the flow of MATLAB program execution.
 keywordControls =
@@ -21,22 +21,22 @@ keywordControls =
         ///
             \b
             (
-                  break
-                | case
-                | catch
-                | continue
-                | else
-                | elseif
-                | end
-                | for
-                | if
-                | otherwise
-                | parfor
-                | return
-                | spmd
-                | switch
-                | try
-                | while
+                break       |
+                case        |
+                catch       |
+                continue    |
+                else        |
+                elseif      |
+                end         |
+                for         |
+                if          |
+                otherwise   |
+                parfor      |
+                return      |
+                spmd        |
+                switch      |
+                try         |
+                while
             )
             \b
         ///
@@ -47,8 +47,10 @@ keywordOthers =
         ///
             \b
             (
-                  nargin
-                | nargout
+                nargin      |
+                nargout     |
+                varargin    |
+                varargout
             )
             \b
         ///
