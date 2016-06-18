@@ -24,8 +24,7 @@ constants =
             ) (?! [\\(\\.] )
             \\b
         '''.deblank()
-    name: 'constant.language.matlab'
-
+    name: 'keyword.literal.matlab'
 # NUMBERS - Captures any legal numeric literal in MATLAB.
 numbers =
     match:
@@ -42,15 +41,28 @@ numbers =
             [ij]?
             \\b
         '''.deblank();
-    name: 'constant.numeric.matlab'
-
+    name: 'literal.number.matlab'
+# EMPTYSTRINGS - Captures any empty string in MATLAB.
+emptyStrings =
+    match: /(\')(\')/
+    captures:
+        1: name: 'enclosure.string.open.matlab'
+        2: name: 'enclosure.string.close.matlab'
 # STRINGS - Captures any legal string in MATLAB.
 strings =
-    match:'''(?<![\\w\\]\\)\\}])(\\')[^\n\\']*(\\')'''
+    match:
+        '''
+            (?<![\\w\\]\\)\\}])
+            (\\')
+            ([^\n\\']+)
+            (\\')
+        '''.deblank()
     captures:
-        1: name: 'punctuation.definition.string.begin.matlab'
-        2: name: 'punctuation.definition.string.end.matlab'
-    name: 'string.quoted.single.matlab'
+        1: name: 'enclosure.string.open.matlab'
+        2: name: 'literal.string.content.matlab'
+        3: name: 'enclosure.string.close.matlab'
+    name: 'literal.string.matlab'
 
 
-module.exports = [ constants, numbers, strings ];
+
+module.exports = [ constants, numbers, emptyStrings, strings ];
