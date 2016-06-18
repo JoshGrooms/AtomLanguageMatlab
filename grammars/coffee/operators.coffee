@@ -24,34 +24,34 @@ operators =
                 | \'
             )
         ///
-    name: 'keyword.operator.matlab';
+    name: 'operator.character.matlab'
 
 # ENCLOSURES - Captures all enclosure characters that MATLAB uses.
 enclosures =
     [
         {
             match: /\[/;
-            name: 'keyword.operator.array.open.matlab';
+            name: 'enclosure.array.open.matlab'
         }
         {
             match: /\]/;
-            name: 'keyword.operator.array.close.matlab';
+            name: 'enclosure.array.close.matlab'
         }
         {
             match: /\(/;
-            name: 'keyword.operator.group.open.matlab';
+            name: 'enclosure.group.open.matlab'
         }
         {
             match: /\)/;
-            name: 'keyword.operator.group.close.matlab';
+            name: 'enclosure.group.close.matlab'
         }
         {
             match: /\{/;
-            name: 'keyword.operator.cell.open.matlab';
+            name: 'enclosure.cell.open.matlab'
         }
         {
             match: /\}/;
-            name: 'keyword.operator.cell.close.matlab';
+            name: 'enclosure.cell.close.matlab'
         }
     ];
 
