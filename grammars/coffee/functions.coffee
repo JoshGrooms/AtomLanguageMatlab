@@ -1,13 +1,3 @@
-func    = 'storage.type.matlab'
-ops     = 'keyword.operator.matlab'
-argin   = 'variable.parameter.input.function.matlab'
-argout  = 'variable.parameter.output.function.matlab'
-ent     = 'entity.name.function.matlab'
-open    = 'punctuation.definition.parameters.begin.matlab'
-close   = 'punctuation.definition.parameters.end.matlab'
-
-
-
 # FUNCTIONINPUT - Captures and labels the input argument list from function declarations.
 #
 #   This pattern is a subpattern of all MATLAB function declarations (found below) and is only meant to classify the input
@@ -20,18 +10,17 @@ close   = 'punctuation.definition.parameters.end.matlab'
 functionInput =
     begin: /\(/;
     beginCaptures:
-        0: name: 'keyword.operator.group.open.matlab';
+        0: name: 'enclosure.group.open.matlab'
     end: /\)/
     endCaptures:
-        0: name: 'keyword.operator.group.close.matlab';
+        0: name: 'enclosure.group.close.matlab'
     patterns:
         [{
             match: /(\w+)\s*(,)?/
             captures:
-                1: name: argin;
-                2: name: ops;
+                1: name: 'variable.argument.input.matlab'
+                2: name: 'operator.character.separator.matlab'
         }]
-
 # FUNCTIONMULTIOUTPUT - Captures and labels the output argument list from function declarations.
 #
 #   This pattern is a subpattern of all MATLAB function declarations (found below) and is only meant to classify the output
@@ -39,66 +28,54 @@ functionInput =
 functionMultiOutput =
     begin: /\[/
     beginCaptures:
-        0: name: 'keyword.operator.array.open.matlab';
-    end:
-        ///
-            ( \] ) \s*
-            ( \= ) \s*
-            (?:
-                ( get | set )
-                ( \. )
-            )?
-            ( \w+ )
-        ///
+        0: name: 'enclosure.group.open.matlab'
+    end: /// ( \] ) \s* ( \= ) \s* ///
     endCaptures:
-        1: name: 'keyword.operator.array.close.matlab';
-        2: name: ops;
-        3: name: 'keyword.special-method.matlab'
-        4: name: ops;
-        5: name: ent;
+        1: name: 'enclosure.group.close.matlab'
+        2: name: 'operator.character.assignment.matlab'
     patterns:
         [{
             match: /// ( \w+ ) \s* (,)? ///
             captures:
-                1: name: argout;
-                2: name: ops;
+                1: name: 'variable.argument.output.matlab'
+                2: name: 'operator.character.separator.matlab'
         }]
-
-# FUNCTIONSINGLEOUTPUT - Captures and labels function declarations with either one or zero output arguments.
-functionSingleOutput =
+# FUNCTIONNAME - Captures and labels the name of any function or class method.
+functionName =
     match:
         ///
-            (?:
-                ( \w+ ) \s*
-                ( \= ) \s*
-            )?
             (?:
                 ( get | set )
                 (\.)
             )?
-            ( \w+ )
+                ( \w+ )
         ///
     captures:
-        1: name: argout;
-        2: name: ops;
-        3: name: 'keyword.special-method.matlab'
-        4: name: ops;
-        5: name: ent;
+        1: name: 'keyword.control.matlab'
+        2: name: 'operator.character.matlab'
+        3: name: 'type.function.name.matlab'
+# FUNCTIONSINGLEOUTPUT - Captures and labels function declarations with either one or zero output arguments.
+functionSingleOutput =
+    match: /// (\w+) \s* (\=) \s*///
+    captures:
+        1: name: 'variable.argument.output.matlab'
+        2: name: 'operator.character.assignment.matlab'
 
 
 
 # FUNCTIONDECLARATION - A complete set of patterns describing how MATLAB functions can be declared in source code.
-functionDefinition =
-    begin: /// ^\s* \b( function )\b ///
+functionDeclaration =
+    begin:          /// ^\s* \b( function )\b ///
     beginCaptures:
-        1: name: func;
-    end: /(.(?=\%)|\r?\n)/
-    name: 'meta.function.declaration.matlab'
+        1: name:    'keyword.type.function.matlab'
+    end:            /(.(?=\%)|\r?\n)/
+    name:           'type.function.declaration.matlab'
     patterns:
         [
-            functionInput,
             functionMultiOutput,
             functionSingleOutput,
+            functionInput,
+            functionName,
         ];
 
-module.exports = functionDefinition
+module.exports = functionDeclaration
