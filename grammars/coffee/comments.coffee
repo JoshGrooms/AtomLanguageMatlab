@@ -1,12 +1,10 @@
 # COMMENTBLOCK - Captures block comments in MATLAB source code.
 commentBlock =
-    begin: /(\%\{)/
-    beginCaptures:
-        1: name: 'comment.block.open.matlab'
-    end: /(\%\})/
-    endCaptures:
-        1: name: 'comment.block.close.matlab'
+    begin: /\%\{/
+    beginCaptures: 'comment.block.open.matlab'
     contentName: 'comment.block.content.matlab'
+    end: /(\%\})/
+    endCaptures: 'comment.block.close.matlab'
     name: 'comment.block.matlab'
 
 # COMMENTLINE - Captures single-line comments in MATLAB source code.
@@ -23,5 +21,7 @@ commentSection =
         1: name: 'comment.section.open.matlab'
         2: name: 'comment.section.content.matlab'
     name: 'comment.section.matlab'
+
+
 
 module.exports = [ commentBlock, commentSection, commentLine ];
