@@ -71,6 +71,12 @@ enumDefinition =
         1: name: 'keyword.type.matlab'
     name: 'type.enumeration.declaration.matlab'
 
+eventDefinition =
+    match: /^\s*\b(event)\b\s*\r?\n/
+    captures:
+        1: name: 'keyword.type.matlab'
+    name: 'type.event.declaration.matlab'
+
 # PROPERTYDEFINITION - Captures and labels property block declarations in MATLAB classes.
 propertyDefinition =
     begin: /^\s*\b(properties)\b/
@@ -97,4 +103,4 @@ methodDefinition =
 
 
 
-module.exports = [ classDefinition, enumDefinition, propertyDefinition, methodDefinition ]
+module.exports = [ classDefinition, enumDefinition, eventDefinition, propertyDefinition, methodDefinition ]

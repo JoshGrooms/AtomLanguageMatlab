@@ -64,6 +64,13 @@
     'name': 'type.enumeration.declaration.matlab'
   }
   {
+    'match': '^\\s*\\b(events)\\b\\s*\\r?\\n'
+    'captures':
+      '1':
+        'name': 'keyword.type.matlab'
+    'name': 'type.event.declaration.matlab'
+  }
+  {
     'begin': '^\\s*\\b(properties)\\b'
     'beginCaptures':
       '1':
